@@ -1,27 +1,43 @@
 import React from 'react';
 import {withFormik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
-import axios from 'axios'
+import axios from 'axios';
+import Styled from 'styled-components';
+
+const Span= Styled.span`
+    padding-right: 5px;
+`
+const Button = Styled.button`
+    color: #EEEEEE;
+    background-color: #2723EC;
+    width: 89px;
+    height: 21 px;
+    text-align: center;
+    border-radius: 10% / 50%;;
+   
+    margin-left: 30%;
+    margin-right: 30%;
+`
 
 function Signup(props){
     return(
         <Form>
             <ErrorMessage name='name' render={msg => <div className="error">{msg}</div>} />
-            <label> Name:
+            <label> <Span>Name:</Span>
                 <Field type='text' placeholder='Enter name' name='name' />
             </label>
             <br />
             <ErrorMessage name='email' render={msg => <div className="error">{msg}</div>} />
-            <label> Email:
+            <label> <Span>Email:</Span>
                 <Field type='text' placeholder='Enter email' name='email' />
             </label>
             <br />
             <ErrorMessage name='password' render={msg => <div className="error">{msg}</div>} />
-            <label> Password:
+            <label> <Span>Password:</Span>
                 <Field type='text' placeholder='Enter password' name='password' />
             </label>
             <br/>
-            <button type='submit'>Sign up</button>
+            <Button type='submit'>Sign up</Button>
         </Form>    
     )
 }

@@ -6,7 +6,8 @@ import Styled from 'styled-components';
 const Div =  Styled.div`
     display: flex;
     margin-right: 10%;
-    margin-left: 10%;
+    margin-left: 8%;
+    margin-bottom: 15px;
 
 `
 const Div1 = Styled.div`

@@ -12,6 +12,7 @@ display: flex;
 font-size: 30px;
 margin-top: 35px;
 
+
 `
 const H1 = Styled.h1`
  margin-top: -14px;
