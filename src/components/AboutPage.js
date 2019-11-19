@@ -1,8 +1,13 @@
 import React from 'react';
+import Intro from './Intro';
 
 function AboutPage(){
     return(
-        <h1>About page</h1>
+        <div>
+            <Intro />
+            
+        </div>
+
     )
 }
 export default AboutPage;
