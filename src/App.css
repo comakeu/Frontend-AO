@@ -2,3 +2,6 @@
   border: 5px solid black;
   margin: 3%;
 }
+.error{
+  color: red;
+}
