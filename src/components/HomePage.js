@@ -3,6 +3,10 @@ import Login from './Login';
 import Signup from  './Signup';
 import Styled from 'styled-components';
 
+const H4 = Styled.h4`
+    color: #3A3939
+`
+
 const Div =  Styled.div`
     display: flex;
     margin-right: 10%;
@@ -39,11 +43,11 @@ function HomePage(){
 
             <div class-name="homepage-forms"> 
                 <div>
-                    <h4>Don't have an account</h4>
+                    <H4>Don't have an account</H4>
                     <Signup />
                 </div>
                 <div>
-                    <h4>Already have an account</h4>
+                    <H4>Already have an account</H4>
                     <Login />
                 </div>
                

@@ -2,7 +2,8 @@ import React from 'react';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './components/HomePage';
-import {Route} from 'react-router-dom';
+import AboutPage from './components/AboutPage';
+import { Route } from 'react-router-dom';
 
 
 
@@ -12,8 +13,11 @@ function App() {
   return (
     <div className="App">
      <Header />
-     <HomePage />
+     <Route exact path='/' component={HomePage}/>
+     <Route path= '/about' component= {AboutPage}/>
      <Footer />
+     
+    
   
     </div>
   );
