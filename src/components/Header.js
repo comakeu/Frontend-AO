@@ -4,8 +4,8 @@ import Styled from 'styled-components';
 const Img = Styled.img`
     height: 80px;
     width: 80px;
-    margin-left: 25%;
-    margin-right: 22%;
+    margin-left: 15%;
+    margin-right: 32%;
 `
 const Div =  Styled.div`
 display: flex;
@@ -14,7 +14,7 @@ margin-top: 35px;
 
 `
 const H1 = Styled.h1`
- margin-top: -16px;
+ margin-top: -14px;
 
 `
 function Header(){
