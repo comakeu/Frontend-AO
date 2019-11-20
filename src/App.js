@@ -6,27 +6,33 @@ import React, { useState, useEffect } from 'react';
 // import API from './API';
 
 const Issues = () => {
-  const [hasError, setErrors] = useState(false)
-  const [issues, setIssues] = useState({});
+  const [issues, setIssues] = useState([]);
 
-  async function fetchData() {
-    const res = await fetch("https://comake-simple.herokuapp.com/api/issues")
-    res
-      .json()
+   function fetchData() {
+   fetch("https://comake-simple.herokuapp.com/api/issues")
+    .then(res =>res.json())
       .then(res => setIssues(res))
-      .catch(err => setErrors(err));
+      .catch(err => console.log(err));
   }
 
   useEffect(() => {
     fetchData();
-  })
+  },[])
 
   return (
-    <div>
-      <span>{JSON.stringify(issues)}</span>
-      <hr />
-      <span>hasError: {JSON.stringify(hasError)}</span>
-    </div>
+    <div>{issues.map(item => {
+
+      console.log(item)
+
+      return (
+        <div>
+        <div> {item.username}</div >
+        <img src={item.imgURL} />
+        <div>votes: {item.votes}</div >
+        </div>
+      ) 
+      })}
+    </div >
   );
 };
 
