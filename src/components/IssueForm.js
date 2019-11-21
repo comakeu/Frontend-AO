@@ -41,22 +41,23 @@ function IssueForm(){
             <br />
             <ErrorMessage name='latitude' render={msg => <div className="error">{msg}</div>} />
             <label> <Span>Latitude:</Span>
-                <Field type='text' name='latitude' placeholder='Enter latitude'/>
+                 <Field component={()=><input type='text' name='latitude' placeholder='Enter latitude' size="32" />}
+                />
             </label>
             <br />
             <ErrorMessage name='longitude' render={msg => <div className="error">{msg}</div>} />
             <label> <Span>Longitude:</Span> 
-                <Field type='text' name='longitude' placeholder='Enter longitude'/>
+            <Field component={()=><input  type='text' name='longitude' size="32" placeholder='Enter longitude'/>}/>
             </label>
             <br />
             <ErrorMessage name='username' render={msg => <div className="error">{msg}</div>} />
             <label> <Span>Username:</Span>
-                <Field type='text' name='username' placeholder='Enter username'/>
+            <Field component ={()=><input type='text' name='username' placeholder='Enter username' size="32"/>}/>
             </label>
             <br />
             <ErrorMessage name='imageUrl' render={msg => <div className="error">{msg}</div>} />
             <label> <Span>ImageUrl:</Span>
-                <Field type='text' name='imgUrl' placeholder='Enter image url'/>
+            <Field component={()=> <input  type='text' name='imgUrl' placeholder='Enter image url' size="32"/>}/>
             </label>
             <br />
             
