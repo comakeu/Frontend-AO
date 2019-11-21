@@ -11,9 +11,11 @@ import axios from 'axios';
 import './App.css';
 
 
-const Issues = () => {
+function App() {
   
-  const [issues, setIssues] = useState({});
+  
+  const [issues, setIssues] = useState();
+
   useEffect(()=>{
         axios.get("https://comake-simple.herokuapp.com/api/issues")
         .then(res=>{
@@ -24,18 +26,17 @@ const Issues = () => {
             console.log(err);
         })
     }, [])
+
     if (!issues || issues.length === 0) {
       return <div>Loading information...</div>;
-
-  
-
+    } 
   return (
 
     <div className="App"> 
         <Header />
      <Route exact path='/' component={HomePage}/>
-     {/* <Route path= '/about' component= {AboutPage}/>
-      */}
+     {/* <Route path= '/about' component= {AboutPage}/> */}
+     
       <Route path='/about' render= {(props)=>{
         return <AboutPage {...props} issues={issues} setIssues={setIssues}/>
       }
@@ -50,4 +51,4 @@ const Issues = () => {
 };
 
 
-export default Issues;
+export default App;
