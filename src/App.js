@@ -37,7 +37,7 @@ const Issues = () => {
      {/* <Route path= '/about' component= {AboutPage}/>
       */}
       <Route path='/about' render= {(props)=>{
-        return <AboutPage {...props} issues={issues} />
+        return <AboutPage {...props} issues={issues} setIssues={setIssues}/>
       }
 
       } />
