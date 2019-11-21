@@ -14,6 +14,18 @@ import './App.css';
 const Issues = () => {
   
   const [issues, setIssues] = useState({});
+  useEffect(()=>{
+        axios.get("https://comake-simple.herokuapp.com/api/issues")
+        .then(res=>{
+            console.log(res.data)
+            setIssues(res.data);
+        })
+        .catch(err=>{
+            console.log(err);
+        })
+    }, [])
+    if (!issues || issues.length === 0) {
+      return <div>Loading information...</div>;
 
   
 
