@@ -54,9 +54,8 @@ const LoginWithFormik= withFormik({
             console.log(error);
         })
     }
-})
-
-(Login);
+}
+)(Login);
 
 
 export default LoginWithFormik;

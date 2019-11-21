@@ -19,7 +19,7 @@ function App() {
   useEffect(()=>{
         axios.get("https://comake-simple.herokuapp.com/api/issues")
         .then(res=>{
-            console.log(res.data)
+           
             setIssues(res.data);
         })
         .catch(err=>{
@@ -35,8 +35,7 @@ function App() {
     <div className="App"> 
         <Header />
         <Route exact path='/' component={HomePage}/>
-     {/* <Route path= '/about' component= {AboutPage}/> */}
-     
+         
         <Route exact path='/about' render= {(props)=>{
         return <AboutPage {...props} issues={issues} setIssues={setIssues}/>
       }} />

@@ -9,7 +9,7 @@ const Div1 = Styled.div`
     text-align: center;
 `
 function AboutPage(props){
-    console.log(props.issues);
+    
     return(
         <div>
             <Intro />
