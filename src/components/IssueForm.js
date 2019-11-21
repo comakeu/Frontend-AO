@@ -5,11 +5,12 @@ import axios from 'axios';
 import Styled from 'styled-components';
 
 const Div = Styled.div`
-    width: 30%;
+  
     margin: auto;
 `
 const Span= Styled.span`
-    padding-right: 5px;
+    padding-right: 10px;
+    font-size: 18px;
 `
 const Span1= Styled.span`
     padding-right: 5px;
@@ -19,46 +20,82 @@ const Span1= Styled.span`
 const Button = Styled.button`
     color: #EEEEEE;
     background-color: #2723EC;
-    width: 89px;
-    height: 21 px;
+    padding: 12px;
     text-align: center;
-    border-radius: 10% / 50%;;
-   
+    border-radius: 10% / 50%;
+    font-size: 17px;
+    margin-top: -12px;
     margin-left: 30%;
     margin-right: 30%;
+`
+const Textarea= Styled.textarea`
+    vertical-align: top;
+    font-size:17px;
+    
+`
+const Input = Styled.input`
+    font-size: 17px;
+    border-radius: 1% / 50%;
+    
+`
+const Br= Styled.br`
+    padding-top: 13px;
+`
+const Span2= Styled.div`
+        padding-top: 16px;
+       
+`
+
+const Span3= Styled.div`
+padding-top: 10px;
 `
 
 function IssueForm(){
     return(
         <Div>
         <Form>
+            <ErrorMessage name='username' render={msg => <div className="error">{msg}</div>} />
+            <Span3>
+            <label><Span>Username:  </Span>
+                <Field component ={()=><Input type='text' name='username' placeholder='Enter username' size="32"/>}/>
+            </label>
+            </Span3>
+            <Br />
+
+            <ErrorMessage name='imageUrl' render={msg => <div className="error">{msg}</div>} />
+            <Span3>
+            <label><Span>ImageUrl:  </Span>
+                <Field component={()=> <Input  type='text' name='imgUrl' placeholder='Enter image url' size="32"/>}/>
+            </label>
+            </Span3>
+            <Br />
+                
+            <ErrorMessage name='latitude' render={msg => <div className="error">{msg}</div>} />
+            <Span3>
+            <label><Span>Latitude:</Span>
+                <Field component={()=><Input type='text' name='latitude' placeholder='Enter latitude' size="32" />}
+                />
+            </label>
+            </Span3>
+            <Br />
+
+            <ErrorMessage name='longitude' render={msg => <div className="error">{msg}</div>} />
+            <Span3>
+            <label><Span>Longitude:</Span> 
+                <Field component={()=><Input  type='text' name='longitude' size="32" placeholder='Enter longitude'/>}/>
+            </label>
+            </Span3>
+            <Br />
+
             <ErrorMessage name='description' render={msg => <div className="error">{msg}</div>} />
-            <label> <Span1> Description:</Span1>
-                <Field component={()=><textarea type='textarea' name='description' placeholder='Enter description' cols='20' rows= '1'></textarea>}
+            <Span2>
+            <label><Span1> Description:</Span1>
+                <Field component={()=><Textarea type='textarea' name='description' placeholder='Enter description' cols='36' rows= '5'></Textarea>}
                 
                />
             </label>
-            <br />
-            <ErrorMessage name='latitude' render={msg => <div className="error">{msg}</div>} />
-            <label> <Span>Latitude:</Span>
-                 <Field component={()=><input type='text' name='latitude' placeholder='Enter latitude' size="32" />}
-                />
-            </label>
-            <br />
-            <ErrorMessage name='longitude' render={msg => <div className="error">{msg}</div>} />
-            <label> <Span>Longitude:</Span> 
-            <Field component={()=><input  type='text' name='longitude' size="32" placeholder='Enter longitude'/>}/>
-            </label>
-            <br />
-            <ErrorMessage name='username' render={msg => <div className="error">{msg}</div>} />
-            <label> <Span>Username:</Span>
-            <Field component ={()=><input type='text' name='username' placeholder='Enter username' size="32"/>}/>
-            </label>
-            <br />
-            <ErrorMessage name='imageUrl' render={msg => <div className="error">{msg}</div>} />
-            <label> <Span>ImageUrl:</Span>
-            <Field component={()=> <input  type='text' name='imgUrl' placeholder='Enter image url' size="32"/>}/>
-            </label>
+            </Span2>
+
             <br />
             
             <Button type='submit'>Submit</Button>
