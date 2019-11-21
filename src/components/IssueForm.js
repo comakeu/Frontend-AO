@@ -50,7 +50,8 @@ const Span3= Styled.div`
 padding-top: 10px;
 `
 
-function IssueForm(){
+function IssueForm(props){
+    
     return(
         <Div>
         <Form>
@@ -62,7 +63,7 @@ function IssueForm(){
             </Span3>
             <Br />
 
-            <ErrorMessage name='imageUrl' render={msg => <div className="error">{msg}</div>} />
+            <ErrorMessage name='imgUrl' render={msg => <div className="error">{msg}</div>} />
             <Span3>
             <label><Span>ImageUrl:  </Span>
                 <Field component={()=> <Input  type='text' name='imgUrl' placeholder='Enter image url' size="32"/>}/>
@@ -107,26 +108,31 @@ const IssueFormWithFormik = withFormik(
     {
         mapPropsToValues(){
             return{
-                description: '',
-                latitude: '',
-                longitude: '',
+            
                 username: '',
-                imageUrl: ''
+                imageUrl: '',
+                 latitude: '',
+                longitude: '',
+                description: '',
             }
         },
-        validationSchema:Yup.object().shape({
-            description:  Yup.string().min(5, 'Too Short!').max(200, 'Too Long!').required("Please enter a description"),
-            latiitude:  Yup.string().required("Please enter latitude for the area you're in"),
-            longitude:  Yup.string().required("Please enter longitude for the area you're in"),
-            username:  Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required("Please enter username"),
-            imageUrl: Yup.string().url().required('Please enter an image url')
+        validationSchema: Yup.object().shape({
+            username: Yup.string().required("Please enter your name"),
+            imageUrl: Yup.string().url().required("Please enter image url"),
+            latitude: Yup.string().required("Please enter latitude"),
+            longitude: Yup.string().required("Please enter longitude"),
+            description: Yup.string().required("Please enter description")
+
+            
         }),
         handleSubmit(values, tools){
-            axios.post('https://comake-simple.herokuapp.com/api/issues', values)
+            axios.post('https://c0mak3.herokuapp.com/api/issues', values)
             .then(response=>{
+                console.log(response.data)
                 tools.resetForm();
             })
             .catch(error=>{
+                // tools.setErrors(error);
                 console.log(error);
             })
         }

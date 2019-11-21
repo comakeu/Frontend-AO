@@ -24,7 +24,7 @@ const Div = Styled.div`
 const Div1= Styled.div`
  display: flex;
  justify-content: space-around;
- flex-flow: row wrap;
+ flex-flow: row-reverse wrap;
  
 `
 const P = Styled.p`

@@ -46,12 +46,13 @@ const LoginWithFormik= withFormik({
         password: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required("Please enter password"),
     }),
     handleSubmit(values, tools){
-        axios.post('http:reqres.in/api/users', values)
+        axios.post('https://c0mak3.herokuapp.com/api/auth/login', values)
         .then(response=>{
+            console.log(response.data);
             tools.resetForm();
         })
         .catch(error=>{
-            console.log(error);
+            tools.setErrors(error);
         })
     }
 }

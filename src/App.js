@@ -17,7 +17,7 @@ function App() {
   const [issues, setIssues] = useState();
 
   useEffect(()=>{
-        axios.get("https://comake-simple.herokuapp.com/api/issues")
+        axios.get("https://c0mak3.herokuapp.com/api/issues")
         .then(res=>{
            
             setIssues(res.data);
