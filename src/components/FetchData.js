@@ -1,8 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import  axios from 'axios';
 import Styled from 'styled-components';
-
-
+import {Link} from 'react-router-dom';
 
 const Span1 = Styled.span`
   font-weight: bolder;
@@ -66,7 +65,7 @@ function FetchData(props){
                              <p><Span1>{issue.username}</Span1> </p>
                              <p><span>Number of votes: {issue.votes}</span> </p>
                     <P> <span>{splitDescription(issue.description)}</span> </P> 
-                     <P1><Span3>See More</Span3> </P1>  
+                    <Link to={`/about/${issue.id}`}><P1><Span3>See More</Span3> </P1> </Link> 
                              
                             
                         </Div>
