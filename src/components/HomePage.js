@@ -9,9 +9,10 @@ const H4 = Styled.h4`
 
 const Div =  Styled.div`
     display: flex;
-    margin-right: 10%;
+    margin-right: 8%;
     margin-left: 8%;
-    margin-bottom: 15px;
+    margin-bottom: 8%;
+    margin-top: 8%;
 
 `
 const Div1 = Styled.div`
