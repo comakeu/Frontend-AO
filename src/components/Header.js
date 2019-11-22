@@ -11,6 +11,8 @@ const Div =  Styled.div`
 display: flex;
 font-size: 30px;
 margin-top: 35px;
+border-bottom: 2px solid #f5f5f5;
+
 
 `
 const H1 = Styled.h1`

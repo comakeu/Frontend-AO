@@ -2,8 +2,9 @@ import React from 'react';
 import Styled from 'styled-components';
 
 const P = Styled.p`
+    border-top: 2px solid #f5f5f5;
     text-align: center;
-    margin-top: 5px;
+    padding-top: 2%;
 `
 
 function Footer(){
