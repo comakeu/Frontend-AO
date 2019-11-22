@@ -31,7 +31,8 @@ function Login(props){
                 <Field type='text' placeholder='Enter password' name='password' />
             </label>
             <br />                     
-            <Link to ='/about'><Button type='submit'>Login</Button></Link>
+            <Button type='submit'>Login</Button>
+            {/* <Link to ='/about'><Button type='submit'>Login</Button></Link> */}
         </Form>
     )
 }
