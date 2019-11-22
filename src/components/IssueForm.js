@@ -51,22 +51,15 @@ padding-top: 10px;
 `
 
 function IssueForm(props){
-    
+    console.log(props)
     return(
         <Div>
         <Form>
-            <ErrorMessage name='username' render={msg => <div className="error">{msg}</div>} />
-            <Span3>
-            <label><Span>Username:  </Span>
-                <Field component ={()=><Input type='text' name='username' placeholder='Enter username' size="32"/>}/>
-            </label>
-            </Span3>
-            <Br />
-
-            <ErrorMessage name='imgUrl' render={msg => <div className="error">{msg}</div>} />
+            
+            <ErrorMessage name='imgURL' render={msg => <div className="error">{msg}</div>} />
             <Span3>
             <label><Span>ImageUrl:  </Span>
-                <Field component={()=> <Input  type='text' name='imgUrl' placeholder='Enter image url' size="32"/>}/>
+                <Field as={()=> <Input placeholder='Enter image url' size="32"  type='text'  name='imgURL'/> }   name='imgURL' />
             </label>
             </Span3>
             <Br />
@@ -74,7 +67,7 @@ function IssueForm(props){
             <ErrorMessage name='latitude' render={msg => <div className="error">{msg}</div>} />
             <Span3>
             <label><Span>Latitude:</Span>
-                <Field component={()=><Input type='text' name='latitude' placeholder='Enter latitude' size="32" />}
+                <Field as={()=><Input type='text' name='latitude' placeholder='Enter latitude' size="32" />}
                 />
             </label>
             </Span3>
@@ -83,7 +76,7 @@ function IssueForm(props){
             <ErrorMessage name='longitude' render={msg => <div className="error">{msg}</div>} />
             <Span3>
             <label><Span>Longitude:</Span> 
-                <Field component={()=><Input  type='text' name='longitude' size="32" placeholder='Enter longitude'/>}/>
+                <Field as={()=><Input  type='text' name='longitude' size="32" placeholder='Enter longitude'/>}/>
             </label>
             </Span3>
             <Br />
@@ -91,7 +84,7 @@ function IssueForm(props){
             <ErrorMessage name='description' render={msg => <div className="error">{msg}</div>} />
             <Span2>
             <label><Span1> Description:</Span1>
-                <Field component={()=><Textarea type='textarea' name='description' placeholder='Enter description' cols='36' rows= '5'></Textarea>}
+                <Field as={()=><Textarea type='textarea' name='description' placeholder='Enter description' cols='36' rows= '5'></Textarea>}
                 
                />
             </label>
@@ -109,18 +102,17 @@ const IssueFormWithFormik = withFormik(
         mapPropsToValues(){
             return{
             
-                username: '',
-                imageUrl: '',
+                imgURL: '',
                  latitude: '',
                 longitude: '',
                 description: '',
             }
         },
-        validationSchema: Yup.object().shape({
-            username: Yup.string().required("Please enter your name"),
-            imageUrl: Yup.string().url().required("Please enter image url"),
-            latitude: Yup.string().required("Please enter latitude"),
-            longitude: Yup.string().required("Please enter longitude"),
+        validationSchema : Yup.object().shape({
+           
+            imgURL: Yup.string().url().required("Please enter image url"),
+            latitude: Yup.number().required("Please enter latitude"),
+            longitude: Yup.number().required("Please enter longitude"),
             description: Yup.string().required("Please enter description")
 
             
@@ -129,7 +121,7 @@ const IssueFormWithFormik = withFormik(
             axios.post('https://c0mak3.herokuapp.com/api/issues', values)
             .then(response=>{
                 console.log(response.data)
-                tools.resetForm();
+                // tools.resetForm();
             })
             .catch(error=>{
                 // tools.setErrors(error);

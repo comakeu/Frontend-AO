@@ -3,6 +3,8 @@ import {withFormik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import Styled from 'styled-components';
+import { Link } from 'react-router-dom';
+// import AboutPage from './AboutPage';
 
 const Span= Styled.span`
     padding-right: 5px;
@@ -21,6 +23,7 @@ const Button = Styled.button`
 
 
 function Signup(props){
+    
     return(
         <Form>
             <ErrorMessage name='first_name' render={msg => <div className="error">{msg}</div>} />
@@ -67,16 +70,17 @@ const SignupWithFormik =  withFormik(
         validationSchema: Yup.object().shape({
             first_name:  Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required("Please enter your  first name"),
             last_name:  Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required("Please enter your last name"),
-            phone_number:  Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required("Please enter your number"),
+            phone:  Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required("Please enter your number"),
             email:  Yup.string().email('Invalid email').required("Please enter your email"),
             password: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required("Please enter password"),
         }),
         handleSubmit(values, tools){
             axios.post('https://c0mak3.herokuapp.com/api/users', values)
             .then(response=>{
-                console.log(response);
+                console.log(response.data);
                 tools.resetForm();
-                alert(`Your account has been created`);
+                alert(`${response.data.first_name} , your account has been created`);
+                console.log(tools.props);
                 
             })
             .catch(error=>{
