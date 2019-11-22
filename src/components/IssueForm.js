@@ -54,7 +54,7 @@ function IssueForm(props){
     
     return(
         <Div>
-        <Form>
+        <Form id="exampleForm">
             
             <ErrorMessage name='imgURL' render={msg => <div className="error">{msg}</div>} />
             <Span3>
@@ -118,11 +118,16 @@ const IssueFormWithFormik = withFormik(
             
         }),
         handleSubmit(values, tools){
-            console.log(values)
+            console.log(values,tools)
             axios.post('https://c0mak3.herokuapp.com/api/issues', values)
             .then(response=>{
                 console.log(response.data)
-                // tools.resetForm();
+                tools.resetForm(
+                    
+                );
+               
+              
+                
             })
             .catch(error=>{
                 // tools.setErrors(error);

@@ -20,7 +20,7 @@ const Button = Styled.button`
 `
 function Login(props){
     return(
-        <Form>
+        <Form type="submit">
             <ErrorMessage name='email' render={msg => <div className="error">{msg}</div>} />
             <label> <Span>Email:</Span>
                 <Field type='text' placeholder='Enter email' name='email' />
@@ -46,13 +46,18 @@ const LoginWithFormik= withFormik({
         email:  Yup.string().email('Invalid email').required("Please enter your email"),
         password: Yup.string().min(2, 'Too Short!').max(50, 'Too Long!').required("Please enter password"),
     }),
-    handleSubmit(values, tools){
+    handleSubmit(values, tool){
+        debugger
         axios.post('https://c0mak3.herokuapp.com/api/auth/login', values)
         .then(response=>{
+            debugger
             console.log(response.data);
             tools.resetForm();
         })
-        .catch(error=>{
+        .catch(error=>{      
+              debugger
+
+
             tools.setErrors(error);
         })
     }
