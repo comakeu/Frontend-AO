@@ -28,16 +28,16 @@ const Button = Styled.button`
     margin-left: 30%;
     margin-right: 30%;
 `
-const Textarea= Styled.textarea`
-    vertical-align: top;
-    font-size:17px;
+// const Textarea= Styled.textarea`
+//     vertical-align: top;
+//     font-size:17px;
     
-`
-const Input = Styled.input`
-    font-size: 17px;
-    border-radius: 1% / 50%;
+// `
+// const Input = Styled.input`
+//     font-size: 17px;
+//     border-radius: 1% / 50%;
     
-`
+// `
 const Br= Styled.br`
     padding-top: 13px;
 `
@@ -51,7 +51,7 @@ padding-top: 10px;
 `
 
 function IssueForm(props){
-    console.log(props)
+    
     return(
         <Div>
         <Form>
@@ -59,7 +59,7 @@ function IssueForm(props){
             <ErrorMessage name='imgURL' render={msg => <div className="error">{msg}</div>} />
             <Span3>
             <label><Span>ImageUrl:  </Span>
-                <Field as={()=> <Input placeholder='Enter image url' size="32"  type='text'  name='imgURL'/> }   name='imgURL' />
+                <Field placeholder='Enter image url' size="32"  type='text'  name='imgURL'   name='imgURL' />
             </label>
             </Span3>
             <Br />
@@ -67,7 +67,7 @@ function IssueForm(props){
             <ErrorMessage name='latitude' render={msg => <div className="error">{msg}</div>} />
             <Span3>
             <label><Span>Latitude:</Span>
-                <Field as={()=><Input type='text' name='latitude' placeholder='Enter latitude' size="32" />}
+                <Field type='text' name='latitude' placeholder='Enter latitude' size="32"
                 />
             </label>
             </Span3>
@@ -76,7 +76,7 @@ function IssueForm(props){
             <ErrorMessage name='longitude' render={msg => <div className="error">{msg}</div>} />
             <Span3>
             <label><Span>Longitude:</Span> 
-                <Field as={()=><Input  type='text' name='longitude' size="32" placeholder='Enter longitude'/>}/>
+                <Field type='text' name='longitude' size="32" placeholder='Enter longitude'/>
             </label>
             </Span3>
             <Br />
@@ -84,7 +84,7 @@ function IssueForm(props){
             <ErrorMessage name='description' render={msg => <div className="error">{msg}</div>} />
             <Span2>
             <label><Span1> Description:</Span1>
-                <Field as={()=><Textarea type='textarea' name='description' placeholder='Enter description' cols='36' rows= '5'></Textarea>}
+                <Field as='textarea' type='textarea' name='description'  placeholder='Enter description' cols='36' rows= '5' 
                 
                />
             </label>
@@ -118,6 +118,7 @@ const IssueFormWithFormik = withFormik(
             
         }),
         handleSubmit(values, tools){
+            console.log(values)
             axios.post('https://c0mak3.herokuapp.com/api/issues', values)
             .then(response=>{
                 console.log(response.data)
