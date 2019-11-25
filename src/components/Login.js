@@ -3,6 +3,7 @@ import {withFormik, Form, Field, ErrorMessage} from 'formik';
 import * as Yup from 'yup';
 import axios from 'axios';
 import Styled from 'styled-components';
+import {Link} from 'react-router-dom'
 
 const Span= Styled.span`
     padding-right: 5px;
@@ -31,6 +32,7 @@ function Login(props){
             </label>
             <br />                     
             <Button type='submit'>Login</Button>
+            {/* <Link to ='/about'><Button type='submit'>Login</Button></Link> */}
         </Form>
     )
 }

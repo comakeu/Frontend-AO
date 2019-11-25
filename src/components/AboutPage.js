@@ -20,7 +20,8 @@ function AboutPage(props){
             </Div1>
             <Div1>
                 <h2>Issues raised</h2>
-                <p>Click on image or username to see more details. If you feel that the issue is urgent then give it a vote</p>
+                
+                
                <FetchData issues={props.issues} setIssues={props.setIssues}/>
             </Div1>
             
